@@ -1,0 +1,99 @@
+@import "./font-sizes";
+
+// МИКСИНЫ
+// Загрузка шрифтов
+@mixin font($family, $src, $weight: false, $style: false) {
+    @font-face {
+        font-display: swap;
+        font-family: quote($family);
+        src: url("../fonts/" + $src + ".woff2") format("woff2"), url("../fonts/" + $src + ".woff") format("woff");
+
+        @if ($weight) {
+            font-weight: $weight;
+        }
+
+        @if ($style) {
+            font-style: $style;
+        }
+    }
+}
+
+// Добавление шрифтов
+@include font(Rubik, "Rubik/Rubik-Regular", 400);
+@include font(Rubik, "Rubik/Rubik-Medium", 500);
+@include font(Rubik, "Rubik/Rubik-Bold", 700);
+
+// Переменные
+$font: "Rubik", sans-serif;
+
+// Основные элементы
+html {
+    font-family: $font;
+    font-weight: 400;
+}
+
+// Заголовки
+h1 {
+    @include font-size("text40");
+    margin: 0;
+    font-weight: 700;
+}
+
+h2 {
+    @include font-size("text36");
+    margin: 0;
+    font-weight: 700;
+}
+
+h3 {
+    @include font-size("text32");
+    margin: 0;
+    font-weight: 700;
+}
+
+h4 {
+    @include font-size("text24");
+    margin: 0;
+    font-weight: 700;
+}
+
+h5 {
+    @include font-size("text20");
+    margin: 0;
+    font-weight: 700;
+}
+
+h6 {
+    @include font-size("text18");
+    margin: 0;
+    font-weight: 700;
+}
+
+p {
+    @include font-size("text16");
+    margin: 0;
+}
+
+// Акцентный текст
+b,
+strong {
+    font-weight: 700;
+}
+
+// Списки
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+// Остальное
+small {
+    @include font-size("text12");
+}
+

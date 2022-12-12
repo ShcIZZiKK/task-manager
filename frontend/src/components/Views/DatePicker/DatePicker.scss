@@ -1,0 +1,98 @@
+// BLOCK
+// MODS
+.date-picker .date-picker_theme_custom {
+    @include scale(border-radius, 10);
+    width: 100%;
+    font-family: $font;
+    letter-spacing: -0.02em;
+    color: $second-500;
+    background-color: $white;
+    border: none;
+
+    .react-datepicker__month-container {
+        width: 100%;
+    }
+
+    .react-datepicker__header {
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+
+    .react-datepicker__month {
+        @include scale(margin, 4 2);
+    }
+
+    .react-datepicker__current-month {
+        @include scale(margin, 12 0 3);
+        @include font-size(text14);
+        color: $second-500;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    .react-datepicker__navigation {
+        @include scale(top, 12);
+        @include scale(width, 20);
+        @include scale(height, 20);
+        @include scale(left, 20);
+        background-image: url("../../../common/images/icons/arrow-left.png");
+        background-size: 100%;
+        background-position: center;
+
+        span {
+            display: none;
+        }
+
+        &.react-datepicker__navigation--next {
+            @include scale(right, 20);
+            left: auto;
+            transform: rotate(180deg);
+        }
+    }
+
+    .react-datepicker__day,
+    .react-datepicker__day-name {
+        @include font-size(text12);
+        @include scale(width, 32);
+        @include scale(min-width, 32);
+        @include scale(height, 32);
+        @include scale(line-height, 32);
+        @include scale(margin, 9);
+        font-weight: 500;
+        user-select: none;
+    }
+
+    .react-datepicker__day-name {
+        text-transform: uppercase;
+    }
+
+    .react-datepicker__day {
+        border-radius: 100%;
+        font-weight: 400;
+        background-color: #F5F5F7;
+
+        &.react-datepicker__day--selected,
+        &.react-datepicker__day--keyboard-selected {
+            background-color: $primary-500;
+
+            @media #{$laptop} {
+                &:hover {
+                    background-color: $primary-500;
+                }
+            }
+        }
+
+        @media #{$laptop} {
+            &:hover {
+                border-radius: 100%;
+                background-color: $second-100;
+            }
+        }
+    }
+
+    .react-datepicker__day--outside-month {
+        opacity: 0.5;
+        background-color: transparent;
+    }
+}

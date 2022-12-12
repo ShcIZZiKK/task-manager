@@ -1,0 +1,53 @@
+// BLOCK
+.comments {
+    @include scale(margin-top, 32);
+}
+
+// ELEMENTS
+.comments__title {
+    @include font-size(text24);
+    color: $second-500;
+    font-weight: 500;
+}
+
+.comments__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    @include scale(margin-top, 24);
+    @include scale(padding, 20);
+    @include scale(border-radius, 10);
+    background-color: $white;
+    overflow: hidden;
+}
+
+.comment__content {
+    @include scale(margin-top, 18);
+    @include font-size(text14);
+    color: $second-300;
+}
+
+.comment__footer {
+    @include scale(margin-top, 18);
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment__footer-prop {
+    @include font-size(text16);
+    display: flex;
+    align-items: center;
+    color: $second-500;
+    font-weight: 500;
+
+    &:last-child {
+        margin-left: auto;
+    }
+
+    svg {
+        @include scale(margin-right, 8);
+        fill: $second-400;
+    }
+}

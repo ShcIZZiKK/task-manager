@@ -1,0 +1,47 @@
+// стандартный transition
+@mixin transition($property...) {
+    transition-property: $property;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+// Убирает браузерные стили у тега button
+@mixin reset-button() {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    text-align: inherit;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+}
+
+// Задаёт фиксированные размеры
+@mixin force-size($width, $height: $width) {
+    width: $width;
+    min-width: $width;
+    max-width: $width;
+    height: $height;
+    min-height: $height;
+    max-height: $height;
+}
+
+@mixin grid($indent: 32) {
+    @include scale(gap, $indent, $indent);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    @media #{$tablet-portrait} {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media #{$tablet-landscape} {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

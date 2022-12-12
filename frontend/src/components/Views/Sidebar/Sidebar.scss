@@ -1,0 +1,132 @@
+.sidebar {
+    @include transition(opacity);
+    @include scale(width, 100%, $sidebar-width-tablet, $sidebar-width-desktop);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: z(sidebar);
+    opacity: 0;
+    pointer-events: none;
+
+    &.is-active {
+        opacity: 1;
+        pointer-events: auto;
+
+        .sidebar__content {
+            transform: translateX(0);
+        }
+    }
+
+    @media #{$tablet-landscape} {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.sidebar__content {
+    @include transition(transform);
+    @include scale(padding, 32);
+    @include scale(width, $sidebar-width-tablet, 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-right: 1px solid $second-100;
+    background-color: $white;
+    transform: translateX(-100%);
+    z-index: z(default);
+
+    @media #{$tablet-landscape} {
+        transform: translateX(0);
+    }
+}
+
+.sidebar__logo {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar__logo-icon {
+    @include scale(width, 34);
+    @include scale(height, 34);
+
+    svg {
+        width: 100%;
+        height: 100%;
+        fill: $primary-500;
+    }
+}
+
+.sidebar__logo-text {
+    @include scale(margin-left, 10);
+    @include font-size(text32);
+    color: $second-500;
+    font-weight: 700;
+}
+
+.sidebar__navigation,
+.sidebar__footer {
+    @include scale(margin-top, 60);
+
+    ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+            @include scale(margin-bottom, 24);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .button_theme_navigate {
+        @include scale(padding, 10 20);
+        @include font-size(text14);
+        display: flex;
+        align-items: center;
+        color: $second-300;
+        font-weight: 500;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &.active {
+            @include scale(border-radius, 10);
+            background-color: $second-100;
+            color: $second-500;
+
+            svg {
+                fill: $second-500;
+            }
+        }
+
+        svg {
+            @include scale(width, 24);
+            @include scale(min-width, 24);
+            @include scale(height, 24);
+            @include scale(margin-right, 12);
+            fill: $second-300;
+        }
+    }
+}
+
+.sidebar__footer {
+    margin-top: auto;
+}
+
+.sidebar__overflow {
+    @include transition(opacity);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: z(zero);
+
+    @media #{$tablet-landscape} {
+        display: none;
+    }
+}

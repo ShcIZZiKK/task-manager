@@ -1,0 +1,27 @@
+// BLOCK
+.chart-block {
+    max-height: 100%;
+    display: flex;
+}
+
+// ELEMENTS
+.chart-block__item {
+    &:not(:last-child) {
+        @include scale(margin-right, 32);
+    }
+}
+
+.chart-block__column {
+    display: flex;
+    flex-direction: column;
+
+    > div {
+        &:not(:first-child) {
+            @include scale(margin-top, 20);
+        }
+    }
+}
+
+.chart-block__flex {
+    width: 100%;
+}

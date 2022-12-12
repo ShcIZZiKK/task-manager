@@ -1,0 +1,32 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.layout__content {
+    @include scale(width, 100%, func "calc(100% - $)" $sidebar-width-tablet, func "calc(100% - $)" $sidebar-width-desktop);
+    @include scale(margin-left, auto, $sidebar-width-tablet, $sidebar-width-desktop);
+    @include scale(margin-right, auto, 0);
+    display: flex;
+    flex-direction: column;
+    max-width: 670px;
+    overflow-anchor: none;
+    background-color: $second-100;
+    border: 1px solid $second-100;
+    border-top-width: 0;
+    border-bottom-width: 0;
+
+    @media #{$tablet-landscape} {
+        max-width: none;
+        border: none;
+    }
+}
+
+.layout-sidebar {
+    display: flex;
+    height: 100%;
+}
+
+.layout-sidebar__content {
+
+}

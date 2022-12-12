@@ -1,0 +1,66 @@
+// BLOCK
+.progress-percent {
+    @include scale(width, 100%, 194);
+    @include scale(border-radius, 10);
+    @include scale(padding, 20);
+    display: flex;
+    align-items: center;
+    background-color: $second-500;
+
+    @media #{$tablet-landscape} {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+// ELEMENTS
+.progress-percent__top {
+
+}
+
+.progress-percent__top-title {
+    @include font-size(text16);
+    color: $white;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+}
+
+.progress-percent__top-count {
+    @include scale(margin-top, 20, 16);
+    @include font-size(text32);
+    color: $white;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+}
+
+.progress-percent__bottom {
+    @include scale(margin-left, 43, 0);
+    @include scale(margin-top, 0, 16);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media #{$tablet-portrait} {
+        flex-wrap: nowrap;
+    }
+}
+
+.progress-percent__bottom-info {
+    @include scale(margin-left, 20, 18);
+    display: flex;
+    flex-direction: column;
+
+    span {
+        @include font-size(text20);
+        font-weight: 500;
+        color: $white;
+        letter-spacing: -0.02em;
+
+        &:last-child {
+            @include scale(margin-top, 4);
+            @include font-size(text14);
+            font-weight: 400;
+            color: $second-300;
+        }
+    }
+}

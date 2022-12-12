@@ -1,0 +1,47 @@
+@import "./breakpoints";
+@import "./scale";
+
+// НАСТРОЙКИ     320       1280          1440      1920   LH
+$font-sizes: (
+        text40: (40px, vw-tablet(40), vw-desk(40), 40px, 1.2),
+        text36: (36px, vw-tablet(36), vw-desk(36), 36px, 1.2),
+        text32: (32px, vw-tablet(32), vw-desk(32), 32px, 1.4),
+        text24: (24px, vw-tablet(24), vw-desk(24), 24px, 1.2),
+        text20: (20px, vw-tablet(20), vw-desk(20), 20px, 1.4),
+        text18: (18px, vw-tablet(18), vw-desk(18), 18px, 1.4),
+        text16: (16px, vw-tablet(16), vw-desk(16), 16px, 1.4),
+        text14: (14px, vw-tablet(14), vw-desk(14), 14px, 1.4),
+        text12: (12px, vw-tablet(12), vw-desk(12), 12px, 1),
+);
+
+$breakpoints: (
+    $mobile,
+    $laptop,
+    $laptop-wide,
+    $fullhd
+);
+
+$line-heights-amount: length(map-get($font-sizes, text40));
+
+// МИКСИНЫ
+// Генерирует font-size и line-height для брекйпоинта
+@mixin generateFontSize($font-size, $i) {
+    font-size: #{nth(nth(map-get($font-sizes, $font-size), $i), 1)};
+
+    @if length(nth(map-get($font-sizes, $font-size), $line-heights-amount)) > 1 {
+        line-height: #{nth(nth(map-get($font-sizes, $font-size), $line-heights-amount), $i)};
+    } @else {
+        line-height: #{nth(nth(map-get($font-sizes, $font-size), $line-heights-amount), 1)};
+    }
+}
+
+// Создает всю структуру размеров шрифта со всеми брейкпоинтами
+@mixin font-size($font-size) {
+    @for $i from 1 through length($breakpoints) {
+        @if nth($breakpoints, $i) == "only screen" {
+            @include generateFontSize($font-size, $i); } @else {
+            @media #{nth($breakpoints, $i)} {
+                @include generateFontSize($font-size, $i); }
+        }
+    }
+}

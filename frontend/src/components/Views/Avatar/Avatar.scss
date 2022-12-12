@@ -1,0 +1,109 @@
+.avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @media #{$laptop} {
+        &:hover {
+            .avatar__tooltip {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+}
+
+.avatar__image {
+    @include scale(width, 48);
+    @include scale(height, 48);
+    @include scale(min-width, 48);
+    border-radius: 100%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.avatar__content {
+    @include scale(margin-left, 10);
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar__content-name {
+    @include font-size(text16);
+    white-space: nowrap;
+    font-weight: 500;
+    color: $second-500;
+}
+
+.avatar__content-info {
+    @include scale(margin-top, 4);
+    @include font-size(text12);
+    color: $second-400;
+}
+
+.avatar__tooltip {
+    @include transition(opacity, transform);
+    @include scale(border-radius, 10);
+    @include scale(padding, 10);
+    @include scale(margin-bottom, 4);
+    @include font-size(text14);
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translate(-50%, 15%);
+    background-color: $second-500;
+    color: $white;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+}
+
+// MODS
+.avatar_theme_size_mini {
+    .avatar__image {
+        @include scale(width, 32);
+        @include scale(height, 32);
+        @include scale(min-width, 32);
+    }
+}
+
+.avatar_theme_size_big {
+    .avatar__image {
+        @include scale(width, 44, 52);
+        @include scale(height, 44, 52);
+        @include scale(min-width, 44, 52);
+    }
+}
+
+.avatar_theme_group {
+    &.avatar_theme_size_mini {
+        &:not(:last-child) {
+            @include scale(margin-right, -10, -12);
+        }
+    }
+
+    &:not(:last-child) {
+        @include scale(margin-right, -15, -17);
+    }
+
+    .avatar__image {
+        border: 2px solid $white;
+    }
+}
+
+.avatar_theme_tooltip_right {
+    @media #{$laptop} {
+        &:hover {
+            .avatar__tooltip {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+        }
+    }
+
+    .avatar__tooltip {
+        left: auto;
+        right: 0;
+        transform: translate(0, 15%);
+    }
+}

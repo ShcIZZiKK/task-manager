@@ -1,0 +1,7 @@
+.projects {
+    @include grid();
+
+    .card__image img {
+        object-fit: contain;
+    }
+}

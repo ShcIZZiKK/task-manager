@@ -1,0 +1,66 @@
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner__item {
+    @include scale(width, 80, 80);
+    @include scale(height, 80, 80);
+    @include scale(transform-origin, 40 40, 40 40);
+    display: inline-block;
+    position: relative;
+    transform: rotate(45deg);
+
+    div {
+        @include scale(top, 32, 32);
+        @include scale(left, 32, 32);
+        @include scale(width, 32, 32);
+        @include scale(height, 32, 32);
+        position: absolute;
+        background: $primary-500;
+        animation: animation-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+
+        &:after,
+        &:before {
+            @include scale(width, 32, 32);
+            @include scale(height, 32, 32);
+            content: " ";
+            position: absolute;
+            display: block;
+            background: $primary-500;
+        }
+
+        &:after {
+            @include scale(top, -24, -24);
+            border-radius: 50% 50% 0 0;
+        }
+
+        &:before {
+            @include scale(left, -24, -24);
+            border-radius: 50% 0 0 50%;
+        }
+    }
+}
+
+@keyframes animation-heart {
+    0% {
+        transform: scale(0.95);
+    }
+    5% {
+        transform: scale(1.1);
+    }
+    39% {
+        transform: scale(0.85);
+    }
+    45% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}

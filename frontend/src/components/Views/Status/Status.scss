@@ -1,0 +1,19 @@
+// BLOCK
+.status {
+    display: flex;
+    align-items: center;
+}
+
+// ELEMENTS
+.status__color {
+    @include scale(width, 12);
+    @include scale(min-width, 12);
+    @include scale(height, 12);
+    @include scale(margin-right, 6);
+    border-radius: 100%;
+}
+
+.status__name {
+    @include font-size(text16);
+    color: $second-500;
+}

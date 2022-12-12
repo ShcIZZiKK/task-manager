@@ -1,0 +1,233 @@
+// SETTINGS
+
+// BLOCK
+.detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+// ELEMENTS
+.detail__content {
+    @include scale(width, 100%, func "calc(100% - $)" 404);
+    background-color: $white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.detail__content-wrapper {
+    @include scale(padding, 24);
+}
+
+.detail__content-image {
+    @include scale(border-radius, 10);
+    @include scale(height, 208, 360, 560);
+    width: 100%;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.detail__content-title {
+    @include font-size(text32);
+    color: $second-500;
+
+    h2 {
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+    }
+}
+
+.detail__content-tags {
+    @include scale(margin-top, 4);
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        @include font-size(text14);
+        color: $second-400;
+        font-weight: 400;
+
+        &:after {
+            @include scale(margin, 0 4);
+            @include font-size(text12);
+            content: '•';
+            color: $second-200;
+            display: inline-flex;
+        }
+
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+.detail__content-info {
+    @include scale(margin-top, 16);
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+.detail__content-info-author {
+    @include scale(margin-top, 8);
+    margin-right: auto;
+
+    > span {
+        @include font-size(text14);
+        @include scale(margin-bottom, 4);
+        display: block;
+        font-weight: 500;
+        color: $second-300;
+    }
+}
+
+.detail__content-info-date {
+    @include scale(margin-top, 4);
+    @include font-size(text16);
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: $primary-500;
+    text-align: right;
+
+    > span {
+        @include font-size(text14);
+        @include scale(margin-bottom, 4);
+        display: block;
+        color: $second-300;
+    }
+}
+
+.detail__content-subtitle {
+    @include scale(margin-top, 32, 30);
+    @include font-size(text24);
+    color: $second-500;
+    font-weight: 500;
+}
+
+.detail__sidebar-text {
+    @include scale(margin-top, 12);
+    @include font-size(text16);
+    color: $information-900;
+}
+
+.detail__content-description {
+    @include scale(margin-top, 8, 16);
+
+    p,
+    h2,
+    h3,
+    h4,
+    ul,
+    ol,
+    img {
+        &:not(:first-child) {
+            @include scale(margin-top, 8, 16);
+        }
+    }
+
+    p {
+        @include font-size(text14);
+        color: $second-500;
+    }
+
+    ul,
+    ol {
+        li {
+            @include scale(padding-left, 26, 34);
+            @include font-size(text14);
+            position: relative;
+            color: $second-500;
+
+            &:not(:first-child) {
+                @include scale(margin-top, 20, 20, 20);
+            }
+
+            &:before {
+                @include scale(width, 13, 20);
+                @include scale(height, 13, 20);
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 0;
+                background-color: $primary-500;
+                background-image: url("../../../common/images/icons/check.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+.detail__sidebar {
+    @include scale(padding, 24);
+    @include scale(width, 100%, 372);
+    background-color: $white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.detail__sidebar-label {
+    @include font-size(text16);
+    color: $second-500;
+    font-weight: 500;
+}
+
+.detail__sidebar-title {
+    @include scale(margin-top, 24);
+    @include font-size(text24);
+    color: $second-500;
+    font-weight: 500;
+}
+
+.detail__sidebar-status {
+    @include scale(margin-top, 12);
+}
+
+.detail__sidebar-subtitle {
+    @include scale(margin-top, 24);
+    @include font-size(text20);
+    color: $second-500;
+    font-weight: 500;
+}
+
+.detail__sidebar-props {
+    @include scale(margin-top, 12);
+
+    ul {
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &:not(:first-child) {
+                @include scale(margin-top, 10);
+            }
+
+            > span {
+                @include font-size(text16);
+                color: $second-400;
+
+                &:last-child {
+                    font-weight: 500;
+                    color: $second-500;
+                }
+
+                &.color-blue {
+                    color: $primary-500;
+                }
+            }
+        }
+    }
+}
+
+// MODS

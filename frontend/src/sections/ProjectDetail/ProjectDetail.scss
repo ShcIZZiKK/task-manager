@@ -1,0 +1,6 @@
+// BLOCK
+.project {
+    .comment {
+        @include scale(width, 100%, func "calc(100% - $)" 404);
+    }
+}

@@ -1,0 +1,21 @@
+// BLOCK
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+// ELEMENTS
+.content__wrapper {
+    @include scale(padding, 32 24, 32);
+}
+
+// MODS
+.content_theme_lightgray {
+    background-color: #FAFAFA;
+}
+
+.content_theme_space_right {
+    @media #{$laptop} {
+        @include scale(width, 100%, func "calc(100% - $)" 436, func "calc(100% - $)" 436);
+    }
+}

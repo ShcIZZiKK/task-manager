@@ -1,0 +1,17 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+// font-smoothind сглаживает шрифты
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    color: $second-500;
+}
+
+img {
+    max-width: 100%;
+}
